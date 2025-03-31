@@ -2,7 +2,9 @@ import { SignedIn, SignedOut, SignInButton, SignUpButton, UserButton } from "@cl
 import Link from "next/link";
 import Image from "next/image"; // ✅ Fixed import
 import { Button } from "./ui/button";
-import { LayoutDashboard } from "lucide-react";
+
+import { ChevronDown, LayoutDashboard, FileText, PenBox, GraduationCap } from "lucide-react";
+
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -37,19 +39,41 @@ const Header = () => {
                 <span className="hidden md:block">
                 Industry Insights
                 </span>
-            
+            <ChevronDown className="h-4 w-4" />
               </Button>
             </Link>
           </SignedIn>
           <DropdownMenu>
-  <DropdownMenuTrigger>Open</DropdownMenuTrigger>
+  <DropdownMenuTrigger>
+  <Button>
+                <LayoutDashboard className="h-4 w-4" />
+                <span className="hidden md:block">
+               Growth tools
+                </span>
+              </Button>
+  </DropdownMenuTrigger>
   <DropdownMenuContent>
-    <DropdownMenuLabel>My Account</DropdownMenuLabel>
-    <DropdownMenuSeparator />
-    <DropdownMenuItem>Profile</DropdownMenuItem>
-    <DropdownMenuItem>Billing</DropdownMenuItem>
-    <DropdownMenuItem>Team</DropdownMenuItem>
-    <DropdownMenuItem>Subscription</DropdownMenuItem>
+    <DropdownMenuItem>
+      <Link href = {"/resume"} className="flex items -center gap-2">
+      <FileText className="h-4 w-4" />
+      <span>Build Resume</span>
+      </Link>
+    </DropdownMenuItem>
+    <DropdownMenuItem>
+
+    <Link href = {"/resume"} className="flex items -center gap-2">
+      <PenBox className="h-4 w-4" />
+      <span>Cover letter</span>
+      </Link>
+
+    </DropdownMenuItem>
+    <DropdownMenuItem>
+    <Link href = {"/resume"} className="flex items -center gap-2">
+      <GraduationCap className="h-4 w-4" />
+      <span>Interview prep</span>
+      </Link>
+    </DropdownMenuItem>
+   
   </DropdownMenuContent>
 </DropdownMenu>
 
